@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(mogz*i!n%$qwkhsca^*jmqx-u$+d=779*eb@k)v417fy+57#8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -134,7 +134,7 @@ JAZZMIN_SETTINGS = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         # 'rest_framework.permissions.IsAuthenticated',
@@ -143,8 +143,8 @@ REST_FRAMEWORK = {
 
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
-    'http://localhost:8000',
     'http://10.0.2.2:8000'
+    'http://localhost:8000',
 ]
 
 DEBUG = True

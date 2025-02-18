@@ -62,7 +62,7 @@ class ProductList(generics.ListAPIView):
 class PopularProductsList(generics.ListAPIView):
     serializer_class = serializers.ProductSerializer
 
-    def get_queryset(self):
+    def get_queryset(self,request):
         # الحصول على المنتجات ذات التقييم بين 4 و 5
         queryset = models.Product.objects.filter(rating__gte=4.0, rating__lte=5.0)
 
@@ -80,6 +80,7 @@ class ProductListByClothesType(APIView):
         clothes_type = request.query_params.get('clothesType', None)
 
         if clothes_type:
+            print("clothes_type ",clothes_type)
             queryset = models.Product.objects.filter(clothesType=clothes_type)
 
             # ترتيب عشوائي باستخدام order_by (أكثر كفاءة)
