@@ -124,7 +124,7 @@ class SearchProductByTitle(APIView):
         query = request.query_params.get('q', None)
 
         if query:
-            products = models.Product.objects.filter(title_icontains=query)  # استخدام __icontains للبحث الحساس لحالة الأحرف
+            products = models.Product.objects.filter(title__icontains=query)  # استخدام __icontains للبحث الحساس لحالة الأحرف
 
             if products.exists():  # التحقق من وجود منتجات قبل التسلسل
                 serializer = serializers.ProductSerializer(products, many=True)
